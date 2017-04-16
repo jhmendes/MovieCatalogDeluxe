@@ -1,0 +1,21 @@
+body  {
+  background-color: lightgreen;
+
+}
+
+
+
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+}
+
+th {
+    text-align: left;
+}
+
+/*add some more css at some point*

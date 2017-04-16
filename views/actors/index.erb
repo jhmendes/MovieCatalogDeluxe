@@ -1,0 +1,34 @@
+<h1>The Ultimate List of Hollywood Actors</h1>
+<h3><a href="/movies">Click Here for Movies</a></h3>
+
+<h3>Search Actors by Name or Character:</h3>
+<form action="/actors" method="post">
+  <input type="text" name="query">
+  <input type="submit" value="Search">
+</form>
+
+<!-- <ul>
+  <% @actors.each do |actor| %>
+    <li>
+      <a href="/actors/<%= actor["id"] %>"><%= actor['name'] %></a> Movies Starred in: <%= actor['count'] %>
+    </li>
+  <% end %>
+</ul> -->
+
+<table>
+  <tr>
+    <th>Actor</th>
+    <th>Number of Movies</th>
+
+  </tr>
+
+<% @actors.each do |actor| %>
+  <tr>
+      <td><a href="/actors/<%= actor["id"] %>"><%= actor['name'] %></a></td>
+      <td><%= actor['count'] %></td>
+
+  </tr>
+
+<% end %>
+
+</table>

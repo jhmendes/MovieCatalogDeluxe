@@ -1,0 +1,35 @@
+<h1>The Ultimate List of Movies</h1>
+
+<h3><a href="/movies?order=year">Click here to order by Year</a></h3>
+<h3><a href="/movies?order=rating">Click here to order by Rating</a></h3>
+<h3><a href="/movies">Click here to order by Title</a></h3>
+<h3><a href="/actors">Click here for a list of Actors</a></h3>
+
+
+<h3>Search Movies by Title:</h3>
+<form action="/movies" method="post">
+  <input type="text" name="query">
+  <input type="submit" value="Search">
+</form>
+
+<table>
+  <tr>
+    <th>Movie</th>
+    <th>Year Released</th>
+    <th>Rating</th>
+    <th>Genre</th>
+    <th>Studio</th>
+  </tr>
+
+<% @movies.each do |movie| %>
+  <tr>
+      <td><a href="/movies/<%= movie["id"] %>"><%= movie['title'] %></a></td>
+      <td><%= movie['year'] %></td>
+      <td><%= movie['rating'] %></td>
+      <td><%= movie['genre'] %></td>
+      <td><%= movie['studio'] %></td>
+  </tr>
+
+<% end %>
+
+</table>
