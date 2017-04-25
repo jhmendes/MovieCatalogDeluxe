@@ -32,6 +32,9 @@ get "/actors" do
 
 end
 
+
+
+
 get "/actors/:id" do
   @actor_id = params[:id]
 
@@ -49,7 +52,11 @@ end
 post "/actors" do
 
   query = params['query']
-  @actors = db_connection { |conn| conn.exec("SELECT id, name FROM actors WHERE name LIKE '%#{query}%'") }
+  @actors = db_connection { |conn| conn.exec("SELECT actors.id, actors.name, cast_members.character
+    FROM cast_members
+    JOIN movies ON cast_members.movie_id = movies.id
+    JOIN actors ON cast_members.actor_id = actors.id
+     WHERE name LIKE '%#{query}%' OR cast_members.character LIKE '%#{query}%'") }
   erb :'actors/index'
 
 end
@@ -79,6 +86,9 @@ get "/movies" do
     erb :'movies/index'
   end
 end
+
+
+
 
 post "/movies" do
 

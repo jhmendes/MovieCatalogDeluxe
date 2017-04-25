@@ -1,4 +1,7 @@
-<h1>The Ultimate List of Hollywood Actors</h1>
+<h1 class="title">Movie Catalog Deluxe</h1>
+
+<div class="headers">
+<h1>The Ultimate List of Actors</h1>
 <h3><a href="/movies">Click Here for Movies</a></h3>
 
 <h3>Search Actors by Name or Character:</h3>
@@ -7,15 +10,8 @@
   <input type="submit" value="Search">
 </form>
 
-<!-- <ul>
-  <% @actors.each do |actor| %>
-    <li>
-      <a href="/actors/<%= actor["id"] %>"><%= actor['name'] %></a> Movies Starred in: <%= actor['count'] %>
-    </li>
-  <% end %>
-</ul> -->
-
-<table>
+</div>
+<table class="actortable">
   <tr>
     <th>Actor</th>
     <th>Number of Movies</th>
@@ -32,3 +28,4 @@
 <% end %>
 
 </table>
+  <h3>All of the actors/actresses that played <%= @actors[0]['character']%></h3>
